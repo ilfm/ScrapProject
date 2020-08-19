@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,12 +15,49 @@
 </head>
 <body>
 <form action="" class="form-inline main_form" >
-	<div class="input_area form-group ">	
+
+	<div class="col-md-2">
 	
-		<label for="title">title<input type="text" class="form-control" name="title"></label>
-		<label for="url">url<input type="text" class="form-control" name="url"></label>
-		<label for="title">content<input type="text" class="form-control" name="content"></label>
-		<button class="btn btn-primary">입력</button>
+	</div>
+
+	<div class="col-md-8">
+		<!-- scrapter insert 하는 div  -->
+		<div class="col-md-12">
+			<div class="input_area form-group ">	
+				<label for="title">title<input type="text" class="form-control" name="title"></label>
+				<label for="url">url<input type="text" class="form-control" name="url"></label>
+				<label for="title">content<input type="text" class="form-control" name="content"></label>
+				<button class="btn btn-primary">입력</button>
+			</div>	
+		</div>
+		<!-- scrater 조회문  -->
+		<div class="col-md-12">
+			<table class="table">
+				<tr>
+				<c:forEach var="lists" items="${list }">
+					<td>
+						${lists.sCode }					
+					</td>
+					<td>
+						${lists.sContent }					
+					</td>
+					<td>
+						${lists.sUrl }					
+					</td>
+					<td>
+						${lists.sKeyword }					
+					</td>
+					
+				</c:forEach>
+				</tr>
+			</table>
+		</div>
+		
+		
+	</div>
+		
+	
+	<div class="col-md-2">
 	
 	</div>
 </form> 
