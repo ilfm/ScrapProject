@@ -18,7 +18,6 @@ import com.dong.scraper.ScraperDTO;
 public class MainController
 {
 
-	
 	  @Autowired 
 	  private SqlSession SqlSession;
 	 
@@ -31,21 +30,18 @@ public class MainController
 		String view = "";
 		
 		
-		try
-		{
+		
 			IScraperDAO dao = SqlSession.getMapper(IScraperDAO.class);
 			
 			// model에 list넣어주기 
 			model.addAttribute("list", dao.list());
 			
-			ArrayList<ScraperDTO>dto =  dao.list();
+			ArrayList<ScraperDTO> dto =  dao.list();
 			
-			System.out.println(dto.get(0).getsCode());
+			/* System.out.println(dto.get(0).getsCode()); */
+		
 			
-		} catch (Exception e)
-		{
-			System.out.println(e.toString());
-		}
+	
 	
 		view ="/index.jsp";
 		

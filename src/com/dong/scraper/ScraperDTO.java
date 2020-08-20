@@ -2,51 +2,87 @@ package com.dong.scraper;
 
 public class ScraperDTO
 {
-	private String sCode		// scrap 코드
-	             , sContent		// 내용
-	             , sUrl			// url
-	             , sKeyword; 	// 키워드
+	private String s_code		// 코드
+				 , s_content	// 글내용
+				 , s_url		// url
+				 , s_keyword	// 키워드
+				 , s_date		// 작성일자
+				 , m_code		// 사용자코드
+				 , s_title;		// 글제목
 	
-	// Getter  / Setter 구성
-	public String getsCode()
+	
+	
+	// getter / setter 구성
+	public String getS_title()
 	{
-		return sCode;
+		return s_title;
 	}
 
-	public void setsCode(String sCode)
+	public void setS_title(String s_title)
 	{
-		this.sCode = sCode;
+		this.s_title = s_title;
 	}
 
-	public String getsContent()
+	public String getS_code()
 	{
-		return sContent;
+		return s_code;
 	}
 
-	public void setsContent(String sContent)
+	public void setS_code(String s_code)
 	{
-		this.sContent = sContent;
+		this.s_code = s_code;
 	}
 
-	public String getsUrl()
+	public String getS_content()
 	{
-		return sUrl;
+		return s_content;
 	}
 
-	public void setsUrl(String sUrl)
+	public void setS_content(String s_content)
 	{
-		this.sUrl = sUrl;
+		this.s_content = s_content;
 	}
 
-	public String getsKeyword()
+	public String getS_url()
 	{
-		return sKeyword;
+		return s_url;
 	}
 
-	public void setsKeyword(String sKeyword)
+	public void setS_url(String s_url)
 	{
-		this.sKeyword = sKeyword;
+		this.s_url = s_url;
 	}
+
+	public String getS_keyword()
+	{
+		return s_keyword;
+	}
+
+	public void setS_keyword(String s_keyword)
+	{
+		this.s_keyword = s_keyword;
+	}
+
+	public String getS_date()
+	{
+		return s_date;
+	}
+
+	public void setS_date(String s_date)
+	{
+		this.s_date = s_date;
+	}
+
+	public String getM_code()
+	{
+		return m_code;
+	}
+
+	public void setM_code(String m_code)
+	{
+		this.m_code = m_code;
+	}
+	
 	
 	
 	

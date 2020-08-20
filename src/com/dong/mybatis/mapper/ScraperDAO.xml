@@ -7,10 +7,9 @@
 <mapper namespace="com.dong.scraper.IScraperDAO">
 	
 	<select id="list" resultType="com.dong.scraper.ScraperDTO">
-	SELECT S_CODE, S_TITLE, S_URL, S_CONTENT, S_KEYWORD, S_DATE, M_CODE
-	FROM VIEW_SCRAPER
-	</select>	
-	
+	SELECT S_CODE , S_TITLE, S_URL, S_CONTENT, NVL(S_KEYWORD,-1) AS S_KEYWORD ,S_DATE, M_CODE
+	FROM SCRAPER
+	</select>		
 	
 	
 </mapper>  

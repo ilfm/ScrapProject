@@ -1,8 +1,17 @@
 @charset "UTF-8";
-
+*
+{
+	font-family: 'Noto Sans KR', sans-serif;
+	
+}
 .main_form input,.main_form button
 {
 	margin-left: 10px;
 	
+	
+}
+.scrap_content *
+{
+	font-size: 8pt;
 	
 }
