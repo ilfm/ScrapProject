@@ -8,14 +8,26 @@ public class ScraperDTO
 				 , s_keyword	// 키워드
 				 , s_date		// 작성일자
 				 , m_code		// 사용자코드
-				 , s_title;		// 글제목
+				 , s_title		// 글제목
+				 , s_like;		// 좋아요
 	
 	
 	
 	// getter / setter 구성
+	
 	public String getS_title()
 	{
 		return s_title;
+	}
+
+	public String getS_like()
+	{
+		return s_like;
+	}
+
+	public void setS_like(String s_like)
+	{
+		this.s_like = s_like;
 	}
 
 	public void setS_title(String s_title)
