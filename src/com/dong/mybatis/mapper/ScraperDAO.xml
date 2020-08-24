@@ -7,10 +7,14 @@
 <mapper namespace="com.dong.scraper.IScraperDAO">
 	
 	<select id="list" resultType="com.dong.scraper.ScraperDTO">
-	SELECT S_CODE , S_TITLE, S_URL, S_CONTENT, NVL(S_KEYWORD,-1) AS S_KEYWORD ,S_DATE, M_CODE
-	FROM SCRAPER
+	SELECT S_CODE , S_TITLE, S_URL, S_CONTENT, NVL(KEYWORD,-1) AS S_KEYWORD, NVL(S_LIKE,-1) AS S_LIKE ,S_DATE, M_CODE
+	FROM VIEW_SCRAPER
 	</select>		
 	
+	<insert id="insert" parameterType="com.dong.scraper.ScraperDTO">
+	INSERT INTO SCRAPER (S_CODE, S_TITLE, S_URL, S_CONTENT, M_CODE)
+	VALUES('S'|| SEQ_SCRAPER.NEXTVAL, #{s_title},#{s_url},#{s_content},'M1')
+	</insert>	
 	
 </mapper>  
 
