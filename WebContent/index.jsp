@@ -6,6 +6,10 @@
 <meta charset="UTF-8">
 <title>Scraper</title>
 
+
+
+
+
 <link rel="stylesheet" href="css/MainPage.css" />
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -13,8 +17,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
 
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script type="text/javascript">
-
+	
+	// 입력 시 유효성 검사
 	function checkInsert()
 	{
 		const title = document.getElementById("title").value;
@@ -43,6 +49,42 @@
 		}
 		
 		return true;
+	}
+	
+	// 수정 버튼 클릭 시 
+	function dataUpdate(obj)
+	{
+		
+		
+		
+	}
+	
+	// 삭제 버튼 클릭 시 
+	function dataDelete(data)
+	{
+		
+		if(confirm("정말 삭제하시겠습니까?"))
+		{
+			
+			$.ajax({ type:"get"
+	            , url:"scraperdelete.action"
+	            , data:{s_code :data.value }
+	            , success: function(data)
+	             {    
+	               window.location="/ScrapProject/main.action";
+	               
+	             }
+	            ,error:function(request,status,error)
+	            {
+	                 //alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+	             }
+	
+	      
+	      
+	      });
+	 }
+
+		
 	}
 
 </script>	
@@ -74,6 +116,7 @@
 					<th>내용</th>
 					<th>키워드</th>
 					<th>작성일자</th>
+					<th></th>
 				</tr>
 				
 				<c:forEach var="lists" items="${list }">
@@ -103,6 +146,10 @@
 					</td>
 					<td>
 						${lists.s_date }
+					</td>
+					<td>
+						<button type="button" class="btn btn-primary"  id="" value="${lists.s_code }"onclick="dataUpdate(this)">수정</button>
+						<button type="button" class="btn btn-primary" value="${lists.s_code }" onclick="dataDelete(this)">삭제</button>
 					</td>
 				</tr>	
 				</c:forEach>				

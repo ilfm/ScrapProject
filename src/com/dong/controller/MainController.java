@@ -69,5 +69,22 @@ public class MainController
 		return view;
 	}
 	
+	@RequestMapping(value="/scraperdelete.action")
+	public String delete(Model model, HttpServletRequest request) 
+	{
+		String view = "";
+		
+		// ajax 로 s_code 넘겨받기
+		String s_code = request.getParameter("s_code");
+		System.out.println(s_code);
+		
+		IScraperDAO dao = SqlSession.getMapper(IScraperDAO.class);
+		int result = dao.delete(s_code);
+		
+		model.addAttribute("result", result);
+		
+		return view;
+	}
+	
 		
 }

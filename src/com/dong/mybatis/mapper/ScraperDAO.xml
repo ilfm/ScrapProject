@@ -16,5 +16,11 @@
 	VALUES('S'|| SEQ_SCRAPER.NEXTVAL, #{s_title},#{s_url},#{s_content},'M1')
 	</insert>	
 	
+	<delete id="delete" parameterType="java.lang.String">
+	DELETE
+	FROM SCRAPER
+	WHERE S_CODE = #{s_code}	
+	</delete>
+	
 </mapper>  
 
