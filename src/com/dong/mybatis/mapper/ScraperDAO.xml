@@ -22,5 +22,10 @@
 	WHERE S_CODE = #{s_code}	
 	</delete>
 	
+	<select id="search" resultType="com.dong.scraper.ScraperDTO">
+	SELECT S_CODE , S_TITLE, S_URL, S_CONTENT, NVL(KEYWORD,-1) AS S_KEYWORD, NVL(S_LIKE,-1) AS S_LIKE ,S_DATE, M_CODE
+	FROM VIEW_SCRAPER
+	WHERE S_CODE = #{s_code}	
+	</select>
 </mapper>  
 

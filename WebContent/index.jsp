@@ -55,6 +55,31 @@
 	function dataUpdate(obj)
 	{
 		
+		const s_code = obj;
+		
+		$.ajax({ type:"get"
+            , url:"usersearch.action"
+            , data:{s_code : s_code }
+            , success: function(data)
+             {    
+              	//alert(data.title);
+              	//alert(data.content);
+              	//alert(data.url);
+               
+              	for (key in data) {
+              		console.log(data[key]);
+              	}
+              	
+             }
+            ,error:function(request,status,error)
+            {
+                 alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+             }
+
+      
+      
+      });
+		
 		
 		
 	}
@@ -148,7 +173,7 @@
 						${lists.s_date }
 					</td>
 					<td>
-						<button type="button" class="btn btn-primary"  id="" value="${lists.s_code }"onclick="dataUpdate(this)">수정</button>
+						<button type="button" class="btn btn-primary"  id="${lists.s_code }" value=""onclick="dataUpdate(this.id)">수정</button>
 						<button type="button" class="btn btn-primary" value="${lists.s_code }" onclick="dataDelete(this)">삭제</button>
 					</td>
 				</tr>	

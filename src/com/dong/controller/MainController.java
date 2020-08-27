@@ -69,6 +69,7 @@ public class MainController
 		return view;
 	}
 	
+	// 데이터 삭제
 	@RequestMapping(value="/scraperdelete.action")
 	public String delete(Model model, HttpServletRequest request) 
 	{
@@ -83,8 +84,25 @@ public class MainController
 		
 		model.addAttribute("result", result);
 		
+		
+		view = "/main.action";
 		return view;
 	}
 	
+	// 특정 사용자 찾기 
+	@RequestMapping(value="/usersearch.action")
+	public String search(HttpServletRequest request) 
+	{
+		String view ="";
+		String s_code = request.getParameter("s_code");
+		
+		IScraperDAO dao = SqlSession.getMapper(IScraperDAO.class);
+		
+		request.setAttribute("result", dao.search(s_code));
+
+		view = "/AjaxArrayList.jsp";
+		
+		return view;
+	}
 		
 }

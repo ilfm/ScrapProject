@@ -2,6 +2,7 @@
 *
 {
 	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: border !important;
 	
 }
 .main_form input,.main_form button
@@ -13,5 +14,6 @@
 .scrap_content *
 {
 	font-size: 8pt;
+	
 	
 }

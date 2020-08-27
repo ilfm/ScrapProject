@@ -12,4 +12,7 @@ public interface IScraperDAO
 	
 	// 사용자가 스크랩한 목록 삭제
 	public int delete(String s_code);
+	
+	// 사용자가 쓴 특정 스크랩 정보 찾기
+	public ScraperDTO search(String s_code);
 }
