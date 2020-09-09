@@ -53,8 +53,7 @@
 	
 	// 수정 버튼 클릭 시 
 	function dataUpdate(obj)
-	{
-		
+	{		
 		const s_code = obj;
 		
 		$.ajax({ type:"get"
