@@ -68,23 +68,24 @@ body td
 		$.ajax({ type:"get"
             , url:"usersearch.action"
             , data:{s_code : s_code }
+			, dataType : "json"
             , success: function(data)
              {    
-              	//alert(data.title);
-              	//alert(data.content);
-              	//alert(data.url);
-               
-              	for (key in data) {
-              		console.log(data[key]);
-              	}
+            	// 데이터 확인
+              	/* alert(data['title']);
+              	alert(data.content);
+              	alert(data.url);  */              
+                document.getElementById("title").value = data.title;
+                document.getElementById("content").value = data.content;
+                document.getElementById("url").value = data.url;
               	
+                document.getElementById("changeBtn").innerText ="수정";
              }
             ,error:function(request,status,error)
             {
                  alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
              }
-
-      
+     
       
       });
 		
@@ -136,7 +137,7 @@ body td
 				<label for="title">title<input type="text" class="form-control" id="title" name="title"></label>
 				<label for="url">url<input type="text" class="form-control" id="url" name="url"></label>
 				<label for="title">content<input type="text" class="form-control" id="content" name="content"></label>
-				<button class="btn btn-primary" type="submit">입력</button>
+				<button class="btn btn-primary" id="changeBtn"type="submit">입력</button>
 			</div>	
 		</div>
 		<!-- scrater 조회문  -->

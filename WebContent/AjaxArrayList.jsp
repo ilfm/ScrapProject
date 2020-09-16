@@ -7,7 +7,7 @@
 
 	ScraperDTO list = (ScraperDTO)request.getAttribute("result");
 
-	
+	// 제이슨 객체 생성
 	JSONObject jobj = new JSONObject();
 	
 	jobj.put("title", list.getS_title());
