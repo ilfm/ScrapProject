@@ -15,4 +15,7 @@ public interface IScraperDAO
 	
 	// 사용자가 쓴 특정 스크랩 정보 찾기
 	public ScraperDTO search(String s_code);
+	
+	// 사용자가 선택한 해당 데이터 수정
+	public int update(ScraperDTO dto);
 }

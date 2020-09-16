@@ -29,6 +29,8 @@ body td
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script type="text/javascript">
 	
+	var updateFlag = 0;
+	
 	// 입력 시 유효성 검사
 	function checkInsert()
 	{
@@ -57,7 +59,20 @@ body td
 			return false;
 		}
 		
-		return true;
+		if(updateFlag == 0)
+		{
+			return true;
+		}
+		else
+		{
+			location.href = "scrapupdate.action";
+		}
+		
+		
+		
+		
+		
+		
 	}
 	
 	// 수정 버튼 클릭 시 
@@ -65,6 +80,7 @@ body td
 	{		
 		const s_code = obj;
 		
+		// scarpe 코드를 넘겨준다.
 		$.ajax({ type:"get"
             , url:"usersearch.action"
             , data:{s_code : s_code }
@@ -74,18 +90,23 @@ body td
             	// 데이터 확인
               	/* alert(data['title']);
               	alert(data.content);
-              	alert(data.url);  */              
+              	alert(data.url);  */
+              	
+              	// 넘겨 받은 데이터 input 창에 입력
                 document.getElementById("title").value = data.title;
                 document.getElementById("content").value = data.content;
                 document.getElementById("url").value = data.url;
               	
+                // 입력버튼 수정 버튼으로 변경
                 document.getElementById("changeBtn").innerText ="수정";
+                
+                updateFlag = 1;
              }
             ,error:function(request,status,error)
             {
-                 alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-             }
-     
+            	// 에러 시 에러 코드 
+            	alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+            }     
       
       });
 		

@@ -104,5 +104,31 @@ public class MainController
 		
 		return view;
 	}
+	
+	@RequestMapping(value="/scrapupdate.action")
+	public String update(HttpServletRequest request) 
+	{
+		String view = "";
+		
+		// 데이터 넘겨받기
+		String title = request.getParameter("title");
+		String content = request.getParameter("content");
+		String url = request.getParameter("url");
+		
+		IScraperDAO dao = SqlSession.getMapper(IScraperDAO.class);
+		
+		// 데이터 넣은 ScraperDTO 객체 생성
+		ScraperDTO dto = new ScraperDTO();
+		
+		// 데이터 set하기
+		dto.setS_title(title);
+		dto.setS_content(content);
+		dto.setS_url(url);
+		
+		dao.update(dto);
+		
+		
+		return view;
+	}
 		
 }
